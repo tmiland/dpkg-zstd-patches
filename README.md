@@ -10,14 +10,20 @@
 - Download the deb packages and install:
 
 ```
-$ sudo dpkg -i dpkg_1.20.12_amd64.deb
-$ sudo dpkg -i dpkg-repack_1.47_all.deb
+git clone https://github.com/tmiland/dpkg-zstd-patches.git
+```
+
+```
+sudo dpkg -i ./deb-packages/dpkg_1.20.12_amd64.deb
+```
+```
+sudo dpkg -i ./deb-packages/dpkg-repack_1.47_all.deb
 ```
 
 dpkg-repack is downloaded from the bullseye repo with:
 
 ```
-$ apt download dpkg-repack
+apt download dpkg-repack
 ```
 *** Not needed if you are running bullseye ***
 
@@ -27,23 +33,51 @@ $ apt download dpkg-repack
 
 ## Build dpkg from source
 
-`git clone https://git.dpkg.org/git/dpkg/dpkg.git`
+```
+git clone https://git.dpkg.org/git/dpkg/dpkg.git
+```
 
-`git checkout 1.20.12`
+cd to root dpkg folder:
 
-Apply patch: 
+```
+cd dpkg
+```
 
-`patch -p1 -i 0001-dpkg-Add-Zstandard-compression-and-decompression-sup.patch`
+```
+git checkout 1.20.12
+```
 
-`./autogen`
+Apply patch:
 
-`./configure`
+Copy patch to root dpkg folder:
 
-`make -j$(nproc)`
+```
+cp -rp ../patches/0001-dpkg-Add-Zstandard-compression-and-decompression-sup.patch .
+```
 
-`make check`
+```
+patch -p1 -i 0001-dpkg-Add-Zstandard-compression-and-decompression-sup.patch
+```
 
-`sudo dpkg-buildpackage -b -uc -us`
+```
+./autogen
+```
+
+```
+./configure
+```
+
+```
+make -j$(nproc)
+```
+
+```
+make check
+```
+
+```
+sudo dpkg-buildpackage -b -uc -us
+```
 
 
 ## Credits
