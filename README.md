@@ -1,2 +1,51 @@
 # debian-dpkg-zstd
  zstd decompression support for Debian
+
+## This is a patched dpkg package for debian
+
+ - This adds support for zstd decompression of ubuntu deb packages.
+ - Why? If you would like to be able to install deb packages from a ubuntu repository in debian.
+
+## Installation
+- Download the deb packages and install:
+
+```
+$ sudo dpkg -i dpkg_1.20.12_amd64.deb
+$ sudo dpkg -i dpkg-repack_1.47_all.deb
+```
+
+dpkg-repack is downloaded from the bullseye repo with:
+
+```
+$ apt download dpkg-repack
+```
+*** Not needed if you are running bullseye ***
+
+## Testing
+
+- Tested on Debian bookworm on Oct 29 2022
+
+## Build dpkg from source
+
+`git clone https://git.dpkg.org/git/dpkg/dpkg.git`
+
+`git checkout 1.20.12`
+
+Apply patch: 
+
+`patch -p1 -i 0001-dpkg-Add-Zstandard-compression-and-decompression-sup.patch`
+
+`./autogen`
+
+`./configure`
+
+`make -j$(nproc)`
+
+`make check`
+
+`sudo dpkg-buildpackage -b -uc -us`
+
+
+## Credits
+
+ - Debian Bug report logs - #892664 [dpkg: Please add decompression support for zstd](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=892664)
