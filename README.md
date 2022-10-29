@@ -27,6 +27,15 @@ apt download dpkg-repack
 ```
 *** Not needed if you are running bullseye ***
 
+Add to `/etc/apt/preferences` to pin the dpkg packages:
+ *** Keeps them from being updated ***
+
+```
+Package: dpkg dpkg-repack
+Pin: release *
+Pin-Priority: -100
+```
+
 ## Testing
 
 - Tested on Debian bookworm on Oct 29 2022
