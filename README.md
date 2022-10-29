@@ -27,8 +27,18 @@ apt download dpkg-repack
 ```
 *** Not needed if you are running bullseye ***
 
+On bookworm it's Because of the following error:
+```
+The following packages have unmet dependencies:
+ dpkg-repack : Depends: dpkg (>= 1.21.0)
+```
+
 Add to `/etc/apt/preferences` to pin the dpkg packages:
  *** Keeps them from being updated ***
+
+```
+sudo nano /etc/apt/preferences
+```
 
 ```
 Package: dpkg dpkg-repack
