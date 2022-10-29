@@ -23,7 +23,7 @@ sudo dpkg -i ./deb-packages/dpkg-repack_1.47_all.deb
 dpkg-repack is downloaded from the bullseye repo with:
 
 ```
-apt download dpkg-repack
+apt download dpkg-repack=1.47
 ```
 *** Not needed if you are running bullseye ***
 
