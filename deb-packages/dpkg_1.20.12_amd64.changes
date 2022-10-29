@@ -1,0 +1,73 @@
+Format: 1.8
+Date: Thu, 01 Sep 2022 05:38:12 +0200
+Source: dpkg
+Binary: dpkg dpkg-dbgsym dpkg-dev dselect dselect-dbgsym libdpkg-dev libdpkg-perl
+Architecture: amd64 all
+Version: 1.20.12
+Distribution: bullseye
+Urgency: medium
+Maintainer: Dpkg Developers <debian-dpkg@lists.debian.org>
+Changed-By: Guillem Jover <guillem@debian.org>
+Description:
+ dpkg       - Debian package management system
+ dpkg-dev   - Debian package development tools
+ dselect    - Debian package management front-end
+ libdpkg-dev - Debian package management static library
+ libdpkg-perl - Dpkg perl modules
+Closes: 980963 991190 995387 1000421 1008316 1008478 1008764
+Changes:
+ dpkg (1.20.12) bullseye; urgency=medium
+ .
+   [ Guillem Jover ]
+   * dpkg: Fix conffile removal-on-upgrade handling. Closes: #995387
+   * dpkg: Fix memory leak in remove-on-upgrade handling.
+   * dpkg-fsys-usrunmess: Move forced reconfiguration to the last step.
+     See #991190.
+   * dpkg-fsys-usrunmess: Install a local policy-rc.d to ignore service
+     restarts. Closes: #991190
+   * dpkg-fsys-usrunmess: Do not fail when removing lingering directories.
+   * dpkg-fsys-usrunmess: Fix typo in debug message.
+   * dpkg-fsys-usrunmess: Explicitly set user/group and mode for created dirs.
+     Closes: #1008478
+   * dpkg-fsys-usrunmess: Set a known umask before starting.
+     See #1008478.
+   * dpkg-fsys-usrunmess: Special case untracked kernel module files.
+     Closes: #1008316
+   * dpkg-fsys-usrunmess: Handle /lib/modules itself also being untracked.
+     Closes: #1008764
+   * Architecture support:
+     - Add support for ARCv2 CPU.
+       Based on a patch by Alexey Brodkin <Alexey.Brodkin@synopsys.com>.
+       Closes: #980963
+   * Perl modules:
+     - Dpkg::Shlibs::Objdump: Fix apply_relocations to work with versioned
+       symbols. Closes: #1000421
+   * Localization:
+     - Fix missing newline in Dutch man pages translation.
+Checksums-Sha1:
+ 0f4724b55c220953cf58833666b291a032df6cda 1499996 dpkg-dbgsym_1.20.12_amd64.deb
+ 380e221635d9142a231e722a1cfeb8cf227e17cd 1262876 dpkg-dev_1.20.12_all.deb
+ 0b3a5ad93d46b30d345aa0d169b0ef7cd937cd74 8169 dpkg_1.20.12_amd64.buildinfo
+ d3ff2d18b8ffc243405622e4cd5a51b2fe3db2ee 1494076 dpkg_1.20.12_amd64.deb
+ 525ed93536e466393f3952aac0f90a0ebaa65476 327088 dselect-dbgsym_1.20.12_amd64.deb
+ 45b9bee56ee52766ec9ce4eb57073ba50585679d 504736 dselect_1.20.12_amd64.deb
+ d657023265a5cccd1a75eb4bd1b93f15f702cced 302368 libdpkg-dev_1.20.12_amd64.deb
+ 173dcd8c3f689599c89668bfa5e0a6a1fa3b4fae 517824 libdpkg-perl_1.20.12_all.deb
+Checksums-Sha256:
+ 23c6d76017dd5a6fae06876e649fa21cc145a8952673dd9cf1da961aa9250098 1499996 dpkg-dbgsym_1.20.12_amd64.deb
+ 59821c21590b89a8803fc89674896c683f3d6bd5e181f13a764faa0a6eb1e865 1262876 dpkg-dev_1.20.12_all.deb
+ b030553385c0c384837e8298f3f10f3b8cd0eb153ecb0d4d80b1454f00a75e2e 8169 dpkg_1.20.12_amd64.buildinfo
+ 03f566d2376d3a9e71cf66c44547b218bc7659b5deb49050a42ca9c2a71aa496 1494076 dpkg_1.20.12_amd64.deb
+ a7c67f1be61e4986e219aeefbf8a9ff338f267ed7df020ac8eb9f359428db1cb 327088 dselect-dbgsym_1.20.12_amd64.deb
+ c89f98a32cb8da4a1842559bbdb7fb18ecd42da0a99badd5a9dc237eb877fe28 504736 dselect_1.20.12_amd64.deb
+ f507b272392abcf2bae1b9c4ef629e459e93a331677f13494ea8aef0a5dc507a 302368 libdpkg-dev_1.20.12_amd64.deb
+ 0689850f2e822c7971acab1c79067864707d3d05392764f998978204eb00690b 517824 libdpkg-perl_1.20.12_all.deb
+Files:
+ 990b6ea770d7852e43b6fcab49b63257 1499996 debug optional dpkg-dbgsym_1.20.12_amd64.deb
+ 7d0ba0580aaa2d6a3a1e784f0f449b7c 1262876 utils optional dpkg-dev_1.20.12_all.deb
+ 453251b50c57b6469da4602ba1715e92 8169 admin required dpkg_1.20.12_amd64.buildinfo
+ ee99dd0d44c941b739a5c2945b376e63 1494076 admin required dpkg_1.20.12_amd64.deb
+ c9948543f141511d3754ed05dd9a24b6 327088 debug optional dselect-dbgsym_1.20.12_amd64.deb
+ 5798b810f630a65cca91f7d7dd8d5159 504736 admin optional dselect_1.20.12_amd64.deb
+ 0f123feb850e5b92d317911f5e27dc78 302368 libdevel optional libdpkg-dev_1.20.12_amd64.deb
+ 12a20cdb98faa220db4b3f50525cdd53 517824 perl optional libdpkg-perl_1.20.12_all.deb
