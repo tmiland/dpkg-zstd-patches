@@ -98,6 +98,52 @@ make check
 sudo dpkg-buildpackage -b -uc -us
 ```
 
+### Adding Ubuntu archive alternative install (Debian bookworm)
+
+Add to /etc/apt/source.list:
+
+```
+deb [signed-by=/usr/share/keyrings/archive.ubuntu.com-archive-keyring.gpg] http://no.archive.ubuntu.com/ubuntu kinetic main
+```
+
+Import the key:
+
+```
+sudo gpg --no-default-keyring --keyring /usr/share/keyrings/archive.ubuntu.com-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 871920D1991BC93C
+```
+
+Add to /etc/apt/preferences:
+
+```
+Package: *
+Pin: release a=kinetic
+Pin-Priority: -1000
+```
+
+Run:
+
+```
+sudo apt update
+```
+Then:
+
+```
+sudo apt install dpkg=1.21.9ubuntu1
+```
+
+Replace the version with current. Check with:
+
+```
+apt policy dpkg
+```
+
+Remember to pin the dpkg package in /etc/apt/preferences
+
+```
+Package: dpkg
+Pin: release *
+Pin-Priority: -100
+```
 
 ## Credits
 
